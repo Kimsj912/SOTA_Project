@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Login">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="843dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="184dp"
+            android:layout_height="74dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="226dp"
+            android:src="@drawable/logo" />
+
+        <EditText
+            android:id="@+id/id"
+            android:layout_width="374dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/borderline"
+            android:hint="아이디"
+            android:paddingLeft="16dp"></EditText>
+
+        <EditText
+            android:id="@+id/pw"
+            android:layout_width="374dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="22dp"
+            android:background="@drawable/borderline"
+            android:hint="비밀번호"
+            android:paddingLeft="16dp"></EditText>
+
+        <TextView
+            android:id="@+id/find"
+            android:layout_width="374dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:gravity="right"
+            android:text="아이디 혹은 비밀번호를 잊으셨나요?"
+            android:textColor="#009490"
+            android:textSize="12dp"></TextView>
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="374dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:backgroundTint="#68CB9F"
+            android:text="로그인"
+            android:textSize="16dp"></Button>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="메모디가 처음이신가요?"
+            android:textSize="12dp"></TextView>
+
+        <TextView
+            android:id="@+id/signup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:text="가입하기"
+            android:textColor="#009688"></TextView>
+
+    </LinearLayout>
+</LinearLayout>

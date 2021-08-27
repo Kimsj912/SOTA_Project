@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/image"
+        android:src="@mipmap/ic_launcher"
+        android:layout_width="60dp"
+        android:layout_height="60dp" />
+
+    <TextView
+        android:id="@+id/txtName"
+        android:layout_width="215dp"
+        android:layout_height="wrap_content"
+        android:text="고승환님이 주세현님의 2021년 08월 08일의 게시물에 댓글을 달았습니다. 000000000000000"
+        android:layout_toRightOf="@id/image"
+        android:layout_marginLeft="20dp"
+        android:textSize="12dp"
+        android:textColor="#000"/>
+
+    <ImageView
+        android:id="@+id/image2"
+        android:layout_toRightOf="@id/txtName"
+        android:layout_marginLeft="20dp"
+        android:src="@mipmap/ic_launcher"
+        android:layout_width="60dp"
+        android:layout_height="60dp" />
+</RelativeLayout>
