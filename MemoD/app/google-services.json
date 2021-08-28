@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "374352085252",
+    "project_id": "memod-7649e",
+    "storage_bucket": "memod-7649e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:374352085252:android:d81cb444147568568f9051",
+        "android_client_info": {
+          "package_name": "com.example.memod"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "374352085252-a2kncop5uaohhodoam2nmeoe7idmdmmv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDL2GVNo9Yf_xc1_cEZvgFoKL6HJ0SU7HY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "374352085252-a2kncop5uaohhodoam2nmeoe7idmdmmv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

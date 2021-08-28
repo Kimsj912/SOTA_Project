@@ -13,6 +13,7 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/backToLogin"
             android:layout_width="13dp"
             android:layout_height="23dp"
             android:layout_gravity="center"
@@ -24,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
-            android:text="아이디 찾기 / 비밀번호 찾기"
+            android:text="이메일 찾기 / 비밀번호 찾기"
             android:textSize="25dp"></TextView>
     </LinearLayout>
 
@@ -46,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="5dp"
-                android:text="아이디 찾기"
+                android:text="이메일 찾기"
                 android:textColor="#DBDBDB"
                 android:textSize="18dp"></TextView>
 
@@ -95,72 +96,64 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/id"
-                android:layout_width="240dp"
-                android:layout_height="40dp"
+                android:id="@+id/findPW_email"
+                android:layout_width="352dp"
+                android:layout_height="48dp"
                 android:layout_marginRight="10dp"
-                android:hint="아이디 입력"></EditText>
-
-            <Button
-                android:id="@+id/id_btn"
-                android:layout_width="102dp"
-                android:layout_height="35dp"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/idborderline"
-                android:text="확인"
-                android:textSize="12dp"></Button>
+                android:hint="이메일 입력"
+                android:inputType="textEmailSubject"></EditText>
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:gravity="center"
-            android:orientation="horizontal">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="30dp"-->
+<!--            android:gravity="center"-->
+<!--            android:orientation="horizontal">-->
 
-            <EditText
-                android:id="@+id/phone_num"
-                android:layout_width="240dp"
-                android:layout_height="40dp"
-                android:layout_marginRight="10dp"
-                android:hint="휴대전화번호 입력 ('-' 제외)"></EditText>
+<!--            <EditText-->
+<!--                android:id="@+id/phone_num"-->
+<!--                android:layout_width="240dp"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:layout_marginRight="10dp"-->
+<!--                android:hint="휴대전화번호 입력 ('-' 제외)"></EditText>-->
 
-            <Button
-                android:id="@+id/certi_btn"
-                android:layout_width="102dp"
-                android:layout_height="35dp"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/idborderline"
-                android:text="인증번호 전송"
-                android:textSize="12dp"></Button>
+<!--            <Button-->
+<!--                android:id="@+id/confirm_btn"-->
+<!--                android:layout_width="102dp"-->
+<!--                android:layout_height="35dp"-->
+<!--                android:layout_marginLeft="10dp"-->
+<!--                android:background="@drawable/idborderline"-->
+<!--                android:text="인증번호 전송"-->
+<!--                android:textSize="12dp"></Button>-->
 
-        </LinearLayout>
+<!--        </LinearLayout>-->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:gravity="center"
-            android:orientation="horizontal">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="30dp"-->
+<!--            android:gravity="center"-->
+<!--            android:orientation="horizontal">-->
 
-            <EditText
-                android:id="@+id/certi_num"
-                android:layout_width="240dp"
-                android:layout_height="40dp"
-                android:layout_marginRight="10dp"
-                android:hint="인증번호 입력"></EditText>
+<!--            <EditText-->
+<!--                android:id="@+id/certi_num"-->
+<!--                android:layout_width="240dp"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:layout_marginRight="10dp"-->
+<!--                android:hint="인증번호 입력"></EditText>-->
 
-            <Button
-                android:id="@+id/ok"
-                android:layout_width="102dp"
-                android:layout_height="35dp"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/idborderline"
-                android:text="확인"
-                android:textSize="12dp"></Button>
+<!--            <Button-->
+<!--                android:id="@+id/ok"-->
+<!--                android:layout_width="102dp"-->
+<!--                android:layout_height="35dp"-->
+<!--                android:layout_marginLeft="10dp"-->
+<!--                android:background="@drawable/idborderline"-->
+<!--                android:text="확인"-->
+<!--                android:textSize="12dp"></Button>-->
 
-        </LinearLayout>
+<!--        </LinearLayout>-->
 
         <Button
             android:id="@+id/change_btn"
@@ -168,8 +161,8 @@
             android:layout_height="50dp"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
-            android:backgroundTint="@drawable/findborderline"
-            android:text="비밀번호 변경"
+            android:background="@drawable/findborderline"
+            android:text="이메일 요청하기"
             android:textSize="14dp">
         </Button>
 
