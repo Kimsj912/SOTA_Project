@@ -23,9 +23,9 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText mEmailText, mPasswordText;
-    TextView mResigertxt, mFindtxt;
-    Button mLoginBtn;
+    private EditText mEmailText, mPasswordText;
+    private TextView mResigertxt, mFindtxt;
+    private Button mLoginBtn;
     private FirebaseAuth firebaseAuth;
 
     @Override

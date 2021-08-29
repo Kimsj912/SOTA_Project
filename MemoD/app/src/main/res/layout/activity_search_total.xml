@@ -210,7 +210,7 @@
                 android:background="#7E6D6D" />
 
             <ListView
-                android:id="@+id/user_list"
+                android:id="@+id/listView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="1dp">

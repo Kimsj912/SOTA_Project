@@ -146,17 +146,19 @@
     </LinearLayout>
 
     <ListView
-        android:id="@+id/user_list"
+        android:id="@+id/listView"
         android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_height="520dp"
         android:layout_margin="10dp"
         android:padding="3dp">
 
     </ListView>
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="212dp"
+        android:layout_marginTop="30dp"
         android:layout_weight="1"
         android:gravity="bottom">
 

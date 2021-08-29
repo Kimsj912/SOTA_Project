@@ -9,12 +9,16 @@
         <entry key="..\:/AndStudy/SOTA_Project/MemoD/app/src/main/res/layout/activity_edit_profile.xml" value="0.2" />
         <entry key="..\:/AndStudy/SOTA_Project/MemoD/app/src/main/res/layout/activity_findid.xml" value="0.22" />
         <entry key="..\:/AndStudy/SOTA_Project/MemoD/app/src/main/res/layout/activity_findpw.xml" value="0.25" />
+        <entry key="..\:/AndStudy/SOTA_Project/MemoD/app/src/main/res/layout/activity_group_list_component.xml" value="0.1" />
         <entry key="..\:/AndStudy/SOTA_Project/MemoD/app/src/main/res/layout/activity_home_new.xml" value="0.17864583333333334" />
         <entry key="..\:/AndStudy/SOTA_Project/MemoD/app/src/main/res/layout/activity_login.xml" value="0.15" />
+        <entry key="..\:/AndStudy/SOTA_Project/MemoD/app/src/main/res/layout/activity_post.xml" value="0.1" />
+        <entry key="..\:/AndStudy/SOTA_Project/MemoD/app/src/main/res/layout/activity_post_list_component.xml" value="0.11447368421052631" />
         <entry key="..\:/AndStudy/SOTA_Project/MemoD/app/src/main/res/layout/activity_profile.xml" value="0.18" />
         <entry key="..\:/AndStudy/SOTA_Project/MemoD/app/src/main/res/layout/activity_search_group.xml" value="0.11348684210526316" />
         <entry key="..\:/AndStudy/SOTA_Project/MemoD/app/src/main/res/layout/activity_search_post.xml" value="0.1" />
-        <entry key="..\:/AndStudy/SOTA_Project/MemoD/app/src/main/res/layout/activity_search_total.xml" value="0.17864583333333334" />
+        <entry key="..\:/AndStudy/SOTA_Project/MemoD/app/src/main/res/layout/activity_search_total.xml" value="0.13" />
+        <entry key="..\:/AndStudy/SOTA_Project/MemoD/app/src/main/res/layout/activity_search_user.xml" value="0.1" />
         <entry key="..\:/AndStudy/SOTA_Project/MemoD/app/src/main/res/layout/activity_signup.xml" value="0.22" />
         <entry key="..\:/AndStudy/SOTA_Project/MemoD/app/src/main/res/layout/activity_signup_success.xml" value="0.1" />
         <entry key="..\:/AndStudy/SOTA_Project/MemoD/app/src/main/res/layout/activity_signupsuccess.xml" value="0.20921052631578949" />
