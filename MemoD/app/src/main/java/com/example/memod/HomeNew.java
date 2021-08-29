@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,7 +20,7 @@ public class HomeNew extends AppCompatActivity {
         // for test (logout)
         FirebaseAuth firebaseAuth =  FirebaseAuth.getInstance();
 
-        EditText test = findViewById(R.id.information);
+        ImageView test = findViewById(R.id.backToLogin);
         test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -28,6 +29,17 @@ public class HomeNew extends AppCompatActivity {
                 startActivity(new Intent(HomeNew.this, MainActivity.class));
             }
         });
+
+
+        EditText information = (EditText) findViewById(R.id.information);
+        information.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeNew.this , SearchTotal.class);
+                startActivity(intent);
+            }
+        });
+
 
 
 
