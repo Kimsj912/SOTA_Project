@@ -71,7 +71,7 @@ public class SearchPost extends AppCompatActivity {
         dataList.add(new ListPost("한여름","여름의 자기소개","Imageurl3"));
 
         // insert data into listview
-        ListView listView = (ListView) findViewById(R.id.listView);
+        ListView listView = (ListView) findViewById(R.id.total_userlistview);
         final MyListAdapter myListAdapter = new MyListAdapter(this,dataList){
             @Override
             public View getView(int position, View converView, ViewGroup parent) {

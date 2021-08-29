@@ -144,13 +144,14 @@
 
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="match_parent"
-        android:layout_height="520dp"
-        android:layout_margin="10dp"
-        android:padding="3dp">
 
+    <ListView
+        android:id="@+id/total_userlistview"
+        android:layout_width="match_parent"
+        android:layout_height="580dp"
+        android:layout_margin="10dp"
+        android:overScrollMode="always"
+        android:padding="3dp">
     </ListView>
 
     <LinearLayout

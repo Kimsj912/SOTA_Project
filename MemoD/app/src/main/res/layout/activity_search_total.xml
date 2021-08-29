@@ -143,20 +143,21 @@
 
     </LinearLayout>
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="3dp">
+        android:layout_height="600dp"
+        android:orientation="vertical"
+        android:padding="3dp"
+        android:overScrollMode="always">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="3dp">
+            android:layout_height="200dp"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="22dp"
                 android:layout_marginTop="10dp"
                 android:text="그룹"
                 android:textSize="20dp"></TextView>
@@ -168,19 +169,32 @@
                 android:background="#7E6D6D" />
 
             <ListView
-                android:id="@+id/group_list"
+                android:id="@+id/total_groupListView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="1dp"></ListView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="22dp"
+                android:layout_marginTop="10dp"
+                android:text="게시물"
+                android:textSize="20dp"></TextView>
+
+            <ListView
+                android:id="@+id/total_postListView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="1dp">
 
             </ListView>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:text="게시물"
-                android:textSize="20dp"></TextView>
 
             <View
                 android:id="@+id/post_list"
@@ -189,16 +203,16 @@
                 android:layout_marginTop="1dp"
                 android:background="#7E6D6D" />
 
-            <ListView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="1dp">
+        </LinearLayout>
 
-            </ListView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="22dp"
                 android:layout_marginTop="10dp"
                 android:text="사용자"
                 android:textSize="20dp"></TextView>
@@ -210,20 +224,18 @@
                 android:background="#7E6D6D" />
 
             <ListView
-                android:id="@+id/listView"
+                android:id="@+id/total_userlistview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="1dp">
-
             </ListView>
-
         </LinearLayout>
-    </ScrollView>
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="212dp"
-        android:layout_marginTop="30dp"
         android:layout_weight="1"
         android:gravity="bottom">
 
@@ -266,6 +278,7 @@
             android:layout_weight="1"
             android:padding="25dp"
             android:src="@drawable/mypage_button" />
+
 
     </LinearLayout>
 

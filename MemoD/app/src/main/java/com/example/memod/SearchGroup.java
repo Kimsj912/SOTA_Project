@@ -70,7 +70,7 @@ public class SearchGroup extends AppCompatActivity {
         dataList.add(new ListGroup("종로 맛집 탐방단","종로 근처 맛집을 함께 공유하는 곳!","url2"));
 
         // insert data into listview
-        ListView listView = (ListView) findViewById(R.id.listView);
+        ListView listView = (ListView) findViewById(R.id.total_userlistview);
         final MyListAdapter myListAdapter = new MyListAdapter(this,dataList){
             @Override
             public View getView(int position, View converView, ViewGroup parent) {

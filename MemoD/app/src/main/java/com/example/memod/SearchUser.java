@@ -69,9 +69,15 @@ public class SearchUser extends AppCompatActivity {
         dataList.add(new ListUser("미션임파서블","15세 이상관람가","url1"));
         dataList.add(new ListUser("아저씨","19세 이상관람가","url2"));
         dataList.add(new ListUser("어벤져스","12세 이상관람가","url3"));
+        dataList.add(new ListUser("미션임파서블","15세 이상관람가","url1"));
+        dataList.add(new ListUser("아저씨","19세 이상관람가","url2"));
+        dataList.add(new ListUser("어벤져스","12세 이상관람가","url3"));
+        dataList.add(new ListUser("미션임파서블","15세 이상관람가","url1"));
+        dataList.add(new ListUser("아저씨","19세 이상관람가","url2"));
+        dataList.add(new ListUser("어벤져스","12세 이상관람가","url3"));
 
         // insert data into listview
-        ListView listView = (ListView) findViewById(R.id.listView);
+        ListView listView = (ListView) findViewById(R.id.total_userlistview);
         final MyListAdapter myListAdapter = new MyListAdapter(this,dataList){
             @Override
             public View getView(int position, View converView, ViewGroup parent) {
