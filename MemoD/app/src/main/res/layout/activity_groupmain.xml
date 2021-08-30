@@ -134,52 +134,48 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="212dp"
+        android:layout_weight="1"
         android:gravity="bottom">
 
         <ImageView
             android:id="@+id/home"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:contentDescription="home"
-            android:padding="7dp"
-            android:src="@drawable/home_btn" />
+            android:padding="25dp"
+            android:src="@drawable/home_button" />
 
         <ImageView
             android:id="@+id/chart"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:contentDescription="chart"
-            android:padding="7dp"
+            android:padding="25dp"
             android:src="@drawable/chart" />
 
         <ImageView
             android:id="@+id/plus"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:contentDescription="plus"
-            android:padding="7dp"
+            android:padding="25dp"
             android:src="@drawable/plus" />
 
         <ImageView
             android:id="@+id/alert"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:contentDescription="alert"
-            android:padding="7dp"
+            android:padding="25dp"
             android:src="@drawable/alert" />
 
         <ImageView
             android:id="@+id/my_page"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:contentDescription="my_page"
-            android:padding="7dp"
+            android:padding="25dp"
             android:src="@drawable/mypage_button" />
 
     </LinearLayout>

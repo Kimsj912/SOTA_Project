@@ -89,56 +89,49 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="12dp"
+        android:layout_height="212dp"
         android:layout_weight="1"
-        android:paddingTop="10dp"
-        android:gravity="top"
-        >
+        android:gravity="bottom">
 
         <ImageView
-            android:id="@+id/imageView15"
-            android:layout_width="0dp"
-            android:layout_height="65dp"
+            android:id="@+id/home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:contentDescription="home"
-            android:padding="18dp"
-            android:src="@drawable/home_button" />
+            android:padding="25dp"
+            android:src="@drawable/home_btn" />
 
         <ImageView
-            android:id="@+id/imageView16"
-            android:layout_width="0dp"
-            android:layout_height="65dp"
+            android:id="@+id/chart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:contentDescription="chart"
-            android:padding="18dp"
+            android:padding="25dp"
             android:src="@drawable/chart" />
 
         <ImageView
-            android:id="@+id/imageView17"
-            android:layout_width="0dp"
-            android:layout_height="65dp"
+            android:id="@+id/plus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:contentDescription="plus"
-            android:padding="18dp"
+            android:padding="25dp"
             android:src="@drawable/plus" />
 
         <ImageView
-            android:id="@+id/imageView18"
-            android:layout_width="0dp"
-            android:layout_height="65dp"
+            android:id="@+id/alert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:contentDescription="alert"
-            android:padding="18dp"
+            android:padding="25dp"
             android:src="@drawable/alert" />
 
         <ImageView
-            android:id="@+id/imageView19"
-            android:layout_width="0dp"
-            android:layout_height="65dp"
+            android:id="@+id/my_page"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:contentDescription="my_page"
-            android:padding="18dp"
-            android:src="@drawable/mypage_button" />
+            android:padding="25dp"
+            android:src="@drawable/mypage_clicked" />
 
     </LinearLayout>
 
