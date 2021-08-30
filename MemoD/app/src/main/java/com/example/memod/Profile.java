@@ -1,8 +1,10 @@
 package com.example.memod;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -14,15 +16,22 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.loader.content.CursorLoader;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.StorageTask;
+import com.google.firebase.storage.UploadTask;
 
 import java.io.File;
 
@@ -99,12 +108,12 @@ public class Profile extends AppCompatActivity {
 
         done = findViewById(R.id.done);
 
-//        photo.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                gotoAlbum();
-//            }
-//        });
+        photo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoAlbum();
+            }
+        });
 
         done.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -151,65 +160,60 @@ public class Profile extends AppCompatActivity {
         }
     }
 
+    // Method - Album
+    public static final int PICK_FROM_ALBUM = 1;
+    private void gotoAlbum() {
+        Intent intent = new Intent(Intent.ACTION_PICK);
+        intent.setType(MediaStore.Images.Media.CONTENT_TYPE);
+        startActivityForResult(intent, PICK_FROM_ALBUM);
+    }
 
+    private File tempFile;
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode != RESULT_OK) { // 코드가 틀릴경우 = 업로드 취소하는 경우.
+            myToast("취소 되었습니다");
+            if (tempFile != null) {
+                if (tempFile.exists()) {
+                    if (tempFile.delete()) {
+                        Log.e("Profile : ", tempFile.getAbsolutePath() + " 삭제 성공");
+                        tempFile = null;
+                    }
+                }
+            }
+            return;
+        }
 
-//    // Method - Album
-//    public static final int PICK_FROM_ALBUM = 1;
-//    private void gotoAlbum() {
-//        Intent intent = new Intent(Intent.ACTION_PICK);
-//        intent.setType(MediaStore.Images.Media.CONTENT_TYPE);
-//        startActivityForResult(intent, PICK_FROM_ALBUM);
-//    }
-//
-//    private File tempFile;
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if (resultCode != RESULT_OK) { // 코드가 틀릴경우
-//            myToast("취소 되었습니다");
-//            if (tempFile != null) {
-//                if (tempFile.exists()) {
-//                    if (tempFile.delete()) {
-//                        Log.e("Profile : ", tempFile.getAbsolutePath() + " 삭제 성공");
-//                        tempFile = null;
-//                    }
-//                }
-//            }
-//            return;
-//        }
-//
-//        switch (requestCode) {
-//            case PICK_FROM_ALBUM: { // 코드 일치
-//                // Uri
-//                imageUri = data.getData();
-//                pathUri = getPath(data.getData());
-//                Log.d("Profile : ", "PICK_FROM_ALBUM photoUri : " + imageUri);
-//                photo.setImageURI(imageUri); // 이미지 띄움
-//                break;
-//            }
-//        }
-//    }
-//
-//    // uri 절대경로 가져오기
-//    public String getPath(Uri uri) {
-//        String[] proj = {MediaStore.Images.Media.DATA};
-//        CursorLoader cursorLoader = new CursorLoader(this, uri, proj, null, null, null);
-//
-//        Cursor cursor = cursorLoader.loadInBackground();
-//        int index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-//
-//        cursor.moveToFirst();
-//        return cursor.getString(index);
-//    }
+        switch (requestCode) {
+            case PICK_FROM_ALBUM: { // 코드 일치
+                // Uri
+                imageUri = data.getData();
+                pathUri = getPath(data.getData());
+                Log.d("Profile : ", "PICK_FROM_ALBUM photoUri : " + imageUri);
+                photo.setImageURI(imageUri); // 이미지 띄움
+                break;
+            }
+        }
+    }
+
+    // uri 절대경로 가져오기
+    public String getPath(Uri uri) {
+        String[] proj = {MediaStore.Images.Media.DATA};
+        CursorLoader cursorLoader = new CursorLoader(this, uri, proj, null, null, null);
+
+        Cursor cursor = cursorLoader.loadInBackground();
+        int index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+
+        cursor.moveToFirst();
+        return cursor.getString(index);
+    }
 
     // 회원가입 로직
     private void signup() {
         // Data
         String email = (String) mustInfoBundle.get("email");
         String pw = (String) mustInfoBundle.get("pwd");
-
-        // 프로필사진,이름,이메일,비밀번호 중 하나라도 비었으면 return
-        // success check
         checkAndSet();
         try {
             firebaseAuth.createUserWithEmailAndPassword(email, pw)
@@ -217,22 +221,12 @@ public class Profile extends AppCompatActivity {
                             (Profile.this, new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
-//                                    Log.d("Profile-adduser : ","유저 만들기는 성공했다");
                                     if (task.isSuccessful()) { // 회원가입 성공시
-                                        myToast("성공!!");
                                         // uid에 task, 선택된 사진을 file에 할당
                                         final String uid = task.getResult().getUser().getUid();
-// 이미지 스토리지에 저장하는 파트
-//                                        final Uri file = Uri.fromFile(new File(pathUri)); // path
-//                                        // 스토리지에 방생성 후 선택한 이미지 넣음
-//                                        StorageReference storageReference = mStorage.getReference()
-//                                                .child("usersprofileImages").child("uid/"+file.getLastPathSegment());
-//                                        storageReference.putFile(imageUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
-//                                            @Override
-//                                            public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
-//                                                // 이미지 넣기 성공하면,
-//                                                final Task<Uri> imageUrl = task.getResult().getStorage().getDownloadUrl();
-//                                                while (!imageUrl.isComplete()) ;
+                                        final Uri file = Uri.fromFile(new File(pathUri)); // path
+                                        // 스토리지에 방생성 후 선택한 이미지 넣음
+                                        uploadProfileToStorage(file);
 
                                         // database에 저장
                                         databaseRef.child(uid).setValue(userModel);
@@ -240,7 +234,7 @@ public class Profile extends AppCompatActivity {
                                         startActivity(intent);
 
                                     } else{
-                                        myToast("실패...."+task.getException());
+                                        myToast("가입에 실패하였습니다. 다시 시도해주세요.");
                                         Log.i("실패이유 : ",""+task.getException());
                                     }
 
@@ -249,5 +243,20 @@ public class Profile extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void uploadProfileToStorage(Uri file) {
+        StorageReference storageReference = mStorage.getReference()
+                .child("user/photo").child("uid/"+file.getLastPathSegment());
+        StorageTask<UploadTask.TaskSnapshot> uploadTask = storageReference.putFile(imageUri);
+    uploadTask.addOnCompleteListener(
+        new OnCompleteListener<UploadTask.TaskSnapshot>() {
+            @Override
+                public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+                final Task<Uri> imageUrl = task.getResult().getStorage().getDownloadUrl();
+                while (!imageUrl.isComplete()) ;
+                myToast("사진업로드 성공");
+                }
+        });
     }
 }
