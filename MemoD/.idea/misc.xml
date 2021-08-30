@@ -10,9 +10,14 @@
         <entry key="..\:/AndStudy/SOTA_Project/MemoD/app/src/main/res/layout/activity_edit_profile.xml" value="0.2" />
         <entry key="..\:/AndStudy/SOTA_Project/MemoD/app/src/main/res/layout/activity_findid.xml" value="0.22" />
         <entry key="..\:/AndStudy/SOTA_Project/MemoD/app/src/main/res/layout/activity_findpw.xml" value="0.25" />
+        <entry key="..\:/AndStudy/SOTA_Project/MemoD/app/src/main/res/layout/activity_group_creat_success.xml" value="0.1118421052631579" />
+        <entry key="..\:/AndStudy/SOTA_Project/MemoD/app/src/main/res/layout/activity_group_create.xml" value="0.25" />
         <entry key="..\:/AndStudy/SOTA_Project/MemoD/app/src/main/res/layout/activity_group_list_component.xml" value="0.1" />
+        <entry key="..\:/AndStudy/SOTA_Project/MemoD/app/src/main/res/layout/activity_group_screen.xml" value="0.1118421052631579" />
+        <entry key="..\:/AndStudy/SOTA_Project/MemoD/app/src/main/res/layout/activity_groupmain.xml" value="0.1118421052631579" />
         <entry key="..\:/AndStudy/SOTA_Project/MemoD/app/src/main/res/layout/activity_home_group_list_component.xml" value="0.17" />
-        <entry key="..\:/AndStudy/SOTA_Project/MemoD/app/src/main/res/layout/activity_home_new.xml" value="0.14" />
+        <entry key="..\:/AndStudy/SOTA_Project/MemoD/app/src/main/res/layout/activity_home_group_list_new_component.xml" value="0.18532404927691484" />
+        <entry key="..\:/AndStudy/SOTA_Project/MemoD/app/src/main/res/layout/activity_home_new.xml" value="0.21" />
         <entry key="..\:/AndStudy/SOTA_Project/MemoD/app/src/main/res/layout/activity_login.xml" value="0.15" />
         <entry key="..\:/AndStudy/SOTA_Project/MemoD/app/src/main/res/layout/activity_post.xml" value="0.1" />
         <entry key="..\:/AndStudy/SOTA_Project/MemoD/app/src/main/res/layout/activity_post_list_component.xml" value="0.11447368421052631" />

@@ -1,10 +1,8 @@
 package com.example.memod;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -16,18 +14,15 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.loader.content.CursorLoader;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
 
 import java.io.File;
 
@@ -37,9 +32,12 @@ public class Profile extends AppCompatActivity {
     private Bundle mustInfoBundle;
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase mDatabase;
+    private DatabaseReference databaseRef;
     private FirebaseStorage mStorage;
     private Uri imageUri;
     private String pathUri;
+    private UserModel userModel;
+
 
     // Attribute
     private ImageView back;
@@ -48,6 +46,7 @@ public class Profile extends AppCompatActivity {
     private RadioGroup sex;
     private RadioButton selectedSex;
     private Button done;
+    private String email, pw;
 
 
     @Override
@@ -58,11 +57,23 @@ public class Profile extends AppCompatActivity {
 
         // firebase setting
         firebaseAuth =  FirebaseAuth.getInstance();
-        mDatabase = FirebaseDatabase.getInstance();
         mStorage = FirebaseStorage.getInstance();
+        mDatabase = FirebaseDatabase.getInstance();
+        databaseRef = mDatabase.getReference("user");
 
+    // Set DB values (before view values)
         // get Data from before Activty
         mustInfoBundle = getIntent().getExtras();
+
+        // create usermodel
+        userModel = new UserModel();
+
+        // essential value setting
+        email = (String) mustInfoBundle.get("email");
+        pw = (String) mustInfoBundle.get("pwd");
+        String name = (String) mustInfoBundle.get("name");
+        String phone = (String) mustInfoBundle.get("phone");
+        userModel.createUser(email,pw, name,phone);
 
         // common
         back = findViewById(R.id.backToLogin);
@@ -88,12 +99,12 @@ public class Profile extends AppCompatActivity {
 
         done = findViewById(R.id.done);
 
-        photo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                gotoAlbum();
-            }
-        });
+//        photo.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                gotoAlbum();
+//            }
+//        });
 
         done.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,120 +118,112 @@ public class Profile extends AppCompatActivity {
     }
 
     // special Method
-    private boolean successCheck() {
-        // signup Success Checker main
-        return  noEmpty();
-    }
-
-    private boolean noEmpty() {
-        if (imageUri==null) {
-            myToast("이미지를 선택해주세요.");
-            return false;
-        } else
-            if (TextUtils.isEmpty(informationTxt.getText())) {
-            myToast("자기소개를 입력해주세요.");
-            return false;
-        } else if (TextUtils.isEmpty(yearTxt.getText())||TextUtils.isEmpty(monthTxt.getText())||TextUtils.isEmpty(dayTxt.getText())) {
-            myToast("생년월일을 확인해주세요.");
-            return false;
-        } else if(TextUtils.isEmpty(location1Txt.getText())&&TextUtils.isEmpty(location2Txt.getText())) {
-            myToast("주소를 입력해주세요.");
-            return false;
-        } else if(!sex.isSelected()) {
-            myToast("성별을 선택해주세요.");
-            return false;
+    private void checkAndSet() {
+        // 부가적 정보를 담는 곳이기 때문에 null이 될수도 있다. --> 하지만 나중에 프로필 띄우는 걸 생각하면... 다 넣는게 좋을듯 하다.
+        if (!TextUtils.isEmpty(informationTxt.getText())) {
+            userModel.setInfomation(informationTxt.getText().toString());
+        } else{
+            userModel.setInfomation("");
         }
-        return true;
-    }
-
-
-    // Method - Album
-    public static final int PICK_FROM_ALBUM = 1;
-    private void gotoAlbum() {
-        Intent intent = new Intent(Intent.ACTION_PICK);
-        intent.setType(MediaStore.Images.Media.CONTENT_TYPE);
-        startActivityForResult(intent, PICK_FROM_ALBUM);
-    }
-
-    private File tempFile;
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode != RESULT_OK) { // 코드가 틀릴경우
-            myToast("취소 되었습니다");
-            if (tempFile != null) {
-                if (tempFile.exists()) {
-                    if (tempFile.delete()) {
-                        Log.e("Profile : ", tempFile.getAbsolutePath() + " 삭제 성공");
-                        tempFile = null;
-                    }
-                }
-            }
-            return;
+        if (!TextUtils.isEmpty(yearTxt.getText())&&!TextUtils.isEmpty(monthTxt.getText())&&!TextUtils.isEmpty(dayTxt.getText())){
+            userModel.setYear(yearTxt.getText().toString());
+            userModel.setMonth(monthTxt.getText().toString());
+            userModel.setDay(dayTxt.getText().toString());
+        } else if(TextUtils.isEmpty(yearTxt.getText())||TextUtils.isEmpty(monthTxt.getText())||TextUtils.isEmpty(dayTxt.getText())){
+            myToast("생년월일을 모두 입력하지 않으면 입력이 거부됩니다.");
+            userModel.setYear("");
+            userModel.setMonth("");
+            userModel.setDay("");
         }
-
-        switch (requestCode) {
-            case PICK_FROM_ALBUM: { // 코드 일치
-                // Uri
-                imageUri = data.getData();
-                pathUri = getPath(data.getData());
-                Log.d("Profile : ", "PICK_FROM_ALBUM photoUri : " + imageUri);
-                photo.setImageURI(imageUri); // 이미지 띄움
-                break;
-            }
+        if(!TextUtils.isEmpty(location1Txt.getText())&&!TextUtils.isEmpty(location2Txt.getText())) {
+            userModel.setLocation1(location1Txt.getText().toString());
+            userModel.setLocation2(location2Txt.getText().toString());
+        } else if(TextUtils.isEmpty(location1Txt.getText())&&!TextUtils.isEmpty(location2Txt.getText())
+                ||!TextUtils.isEmpty(location1Txt.getText())&&TextUtils.isEmpty(location2Txt.getText())){
+            myToast("주소를 모두 입력하지 않으면 입력이 거부됩니다.");
+            userModel.setLocation1("");
+            userModel.setLocation2("");
+        }
+        if(sex.isSelected()) {
+            userModel.setSex(selectedSex.getText().toString());
+        }else{
+            userModel.setSex("");
         }
     }
 
-    // uri 절대경로 가져오기
-    public String getPath(Uri uri) {
-        String[] proj = {MediaStore.Images.Media.DATA};
-        CursorLoader cursorLoader = new CursorLoader(this, uri, proj, null, null, null);
 
-        Cursor cursor = cursorLoader.loadInBackground();
-        int index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
 
-        cursor.moveToFirst();
-        return cursor.getString(index);
-    }
+//    // Method - Album
+//    public static final int PICK_FROM_ALBUM = 1;
+//    private void gotoAlbum() {
+//        Intent intent = new Intent(Intent.ACTION_PICK);
+//        intent.setType(MediaStore.Images.Media.CONTENT_TYPE);
+//        startActivityForResult(intent, PICK_FROM_ALBUM);
+//    }
+//
+//    private File tempFile;
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (resultCode != RESULT_OK) { // 코드가 틀릴경우
+//            myToast("취소 되었습니다");
+//            if (tempFile != null) {
+//                if (tempFile.exists()) {
+//                    if (tempFile.delete()) {
+//                        Log.e("Profile : ", tempFile.getAbsolutePath() + " 삭제 성공");
+//                        tempFile = null;
+//                    }
+//                }
+//            }
+//            return;
+//        }
+//
+//        switch (requestCode) {
+//            case PICK_FROM_ALBUM: { // 코드 일치
+//                // Uri
+//                imageUri = data.getData();
+//                pathUri = getPath(data.getData());
+//                Log.d("Profile : ", "PICK_FROM_ALBUM photoUri : " + imageUri);
+//                photo.setImageURI(imageUri); // 이미지 띄움
+//                break;
+//            }
+//        }
+//    }
+//
+//    // uri 절대경로 가져오기
+//    public String getPath(Uri uri) {
+//        String[] proj = {MediaStore.Images.Media.DATA};
+//        CursorLoader cursorLoader = new CursorLoader(this, uri, proj, null, null, null);
+//
+//        Cursor cursor = cursorLoader.loadInBackground();
+//        int index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+//
+//        cursor.moveToFirst();
+//        return cursor.getString(index);
+//    }
 
     // 회원가입 로직
     private void signup() {
         // Data
         String email = (String) mustInfoBundle.get("email");
         String pw = (String) mustInfoBundle.get("pwd");
-        String name = (String) mustInfoBundle.get("name");
-        String phone = (String) mustInfoBundle.get("phone");
-
-        String infomation = informationTxt.getText().toString();
-        String year = yearTxt.getText().toString();
-        String month = monthTxt.getText().toString();
-        String day = dayTxt.getText().toString();
-        String sex = selectedSex.toString();
-        String location1 = location1Txt.getText().toString();
-        String location2 = location2Txt.getText().toString();
-
 
         // 프로필사진,이름,이메일,비밀번호 중 하나라도 비었으면 return
         // success check
-        if(!successCheck()) {
-            // if success -> save -> to SignUpSuccess Activity
-            myToast("정보를 바르게 입력해 주세요");
-            return;
-        }
+        checkAndSet();
         try {
-            // Authentication에 email,pw 생성
             firebaseAuth.createUserWithEmailAndPassword(email, pw)
                     .addOnCompleteListener
                             (Profile.this, new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
-                                    Log.d("Profile-adduser : ","유저 만들기는 성공했다");
+//                                    Log.d("Profile-adduser : ","유저 만들기는 성공했다");
                                     if (task.isSuccessful()) { // 회원가입 성공시
-
+                                        myToast("성공!!");
                                         // uid에 task, 선택된 사진을 file에 할당
                                         final String uid = task.getResult().getUser().getUid();
-                                        final Uri file = Uri.fromFile(new File(pathUri)); // path
-
+// 이미지 스토리지에 저장하는 파트
+//                                        final Uri file = Uri.fromFile(new File(pathUri)); // path
 //                                        // 스토리지에 방생성 후 선택한 이미지 넣음
 //                                        StorageReference storageReference = mStorage.getReference()
 //                                                .child("usersprofileImages").child("uid/"+file.getLastPathSegment());
@@ -230,26 +233,17 @@ public class Profile extends AppCompatActivity {
 //                                                // 이미지 넣기 성공하면,
 //                                                final Task<Uri> imageUrl = task.getResult().getStorage().getDownloadUrl();
 //                                                while (!imageUrl.isComplete()) ;
-//                                                UserModel userModel = new UserModel();
-//                                                userModel.createUser(uid,email,pw, name,phone);
-//                                                userModel.setAddition(imageUrl,infomation,year,month,day,sex,location1,location2);
-//
-//                                                // database에 저장
-//                                                mDatabase.getReference().child("user").child(uid)
-//                                                        .setValue(userModel);
-//                                            }
-//
-//                                        });
 
-                                        myToast("회원가입에 성공하였습니다");
-                                        // TODO: user정보 저장?
+                                        // database에 저장
+                                        databaseRef.child(uid).setValue(userModel);
                                         Intent intent = new Intent(Profile.this, MainActivity.class);
+                                        startActivity(intent);
 
-                                    } else {
-                                        if (task.getException() != null) { // 회원가입 실패시
-                                            myToast("가입에 실패 하였습니다");
-                                        }
+                                    } else{
+                                        myToast("실패...."+task.getException());
+                                        Log.i("실패이유 : ",""+task.getException());
                                     }
+
                                 }
                             });
         } catch (Exception e) {
