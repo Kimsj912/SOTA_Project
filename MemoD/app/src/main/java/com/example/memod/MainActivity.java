@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 
 import android.graphics.Color;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,6 +25,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
+    // Attribute
     private EditText mEmailText, mPasswordText;
     private TextView mResigertxt, mFindtxt;
     private Button mLoginBtn;
@@ -33,11 +36,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
         //파이어베이스 접근 설정
-        // user = firebaseAuth.getCurrentUser();
         firebaseAuth =  FirebaseAuth.getInstance();
-        //firebaseDatabase = FirebaseDatabase.getInstance().getReference();
 
         mEmailText = findViewById(R.id.login_email);
         mPasswordText = findViewById(R.id.login_pw);
@@ -50,8 +50,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //intent함수를 통해 find Activity 함수를 호출한다.
-                Toast.makeText(MainActivity.this,"find id/pw",Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(MainActivity.this, FindID.class);
+                Intent intent = new Intent(MainActivity.this, FindPW.class);
                 startActivity(intent);
             }
         });
@@ -61,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //intent함수를 통해 Signup액티비티 함수를 호출한다.
-                Toast.makeText(MainActivity.this,"가입 시도",Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(MainActivity.this, SignUp.class);
                 startActivity(intent);
 
@@ -70,13 +68,16 @@ public class MainActivity extends AppCompatActivity {
 
         //로그인 버튼이 눌리면
         mLoginBtn.setOnClickListener(new View.OnClickListener(){
-
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"로그인 시도",Toast.LENGTH_LONG).show();
                 mLoginBtn.setBackgroundColor(Color.BLACK);
                 String email = mEmailText.getText().toString().trim();
                 String pwd = mPasswordText.getText().toString().trim();
+
+                if(TextUtils.isEmpty(mEmailText.getText())||TextUtils.isEmpty(mPasswordText.getText())){
+                    Toast.makeText(MainActivity.this, "이메일 or 비밀번호 입력 후 재시도해주세요.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 firebaseAuth.signInWithEmailAndPassword(email,pwd)
                         .addOnCompleteListener(MainActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
@@ -95,7 +96,6 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             }
                         });
-
             }
         });
     }
@@ -111,7 +111,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateUI(FirebaseUser user) {
         if(user!=null){
-            Toast.makeText(MainActivity.this, "login success and will change view to homeview", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(MainActivity.this, HomeNew.class);
             intent.putExtra("user",user);
             startActivity(intent);
