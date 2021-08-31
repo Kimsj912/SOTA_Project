@@ -65,6 +65,15 @@ public class HomeNew extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        ImageView chart = (ImageView) findViewById(R.id.chart);
+        chart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeNew.this , PostActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
 
         // set List ---->

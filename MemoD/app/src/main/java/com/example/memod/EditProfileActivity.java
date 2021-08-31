@@ -44,7 +44,14 @@ public class EditProfileActivity extends AppCompatActivity {
             }
         });
 
-
+        ImageView chart = (ImageView) findViewById(R.id.chart);
+        chart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(EditProfileActivity.this , PostActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
 }}
