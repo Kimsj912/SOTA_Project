@@ -18,13 +18,6 @@
             android:layout_marginTop="226dp"
             android:src="@drawable/logo" />
 
-<!--        <EditText-->
-<!--            android:id="@+id/editTextTextEmailAddress"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:ems="10"-->
-<!--            android:inputType="textEmailAddress" />-->
-
         <EditText
             android:id="@+id/login_email"
             android:layout_width="374dp"
@@ -54,7 +47,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:gravity="right"
-            android:text="아이디 혹은 비밀번호를 잊으셨나요?"
+            android:text="비밀번호를 잊으셨나요?"
             android:textColor="#009490"
             android:textSize="12dp"></TextView>
 

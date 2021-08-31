@@ -92,64 +92,25 @@
             android:inputType="textPersonName"
             android:paddingLeft="16dp"></EditText>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <EditText
+            android:id="@+id/phone"
+            android:layout_width="374dp"
+            android:layout_height="48dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="50dp"
-            android:orientation="horizontal">
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/borderline"
+            android:hint="휴대전화번호"
+            android:inputType="textPersonName"
+            android:paddingLeft="16dp"></EditText>
 
-            <EditText
-                android:id="@+id/phone"
-                android:layout_width="255dp"
-                android:layout_height="45dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/borderline"
-                android:hint="휴대전화번호"
-                android:inputType="phone"
-                android:paddingLeft="16dp"></EditText>
-
-            <Button
-                android:id="@+id/confirm_btn"
-                android:layout_width="102dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="5dp"
-                android:background="@drawable/findborderline"
-                android:text="인증하기"
-                android:textSize="12dp"
-                android:focusable="false"></Button>
-
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/confirmNum"
-                android:layout_width="255dp"
-                android:layout_height="45dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/borderline"
-                android:hint="인증번호"
-                android:paddingLeft="16dp"></EditText>
-
-            <Button
-                android:id="@+id/ok"
-                android:layout_width="102dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="5dp"
-                android:background="@drawable/findborderline"
-                android:clickable="false"
-                android:text="확인"
-                android:textSize="12dp"
-                android:focusable="false"></Button>
-
-
-        </LinearLayout>
+            android:orientation="horizontal"/>
 
         <Button
             android:id="@+id/next"

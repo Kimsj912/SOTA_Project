@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -43,6 +44,21 @@ public class MypageMap extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        ImageView home = (ImageView) findViewById(R.id.home);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MypageMap.this , HomeNew.class);
+                startActivity(intent);
+            }
+        });
+        ImageView chart = (ImageView) findViewById(R.id.chart);
+        chart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MypageMap.this , PostActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }}

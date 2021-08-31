@@ -41,4 +41,13 @@ public class MypageTimeline extends AppCompatActivity {
             }
         });
 
+        ImageView chart = (ImageView) findViewById(R.id.chart);
+        chart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MypageTimeline.this , PostActivity.class);
+                startActivity(intent);
+            }
+        });
+
 }}

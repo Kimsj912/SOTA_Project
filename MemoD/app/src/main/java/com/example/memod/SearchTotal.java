@@ -74,6 +74,14 @@ public class SearchTotal extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        ImageView chart = (ImageView) findViewById(R.id.chart);
+        chart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SearchTotal.this , PostActivity.class);
+                startActivity(intent);
+            }
+        });
 
         // Group - set List ---->
         // <test Data>

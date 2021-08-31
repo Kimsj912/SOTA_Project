@@ -72,6 +72,15 @@ public class SearchPost extends AppCompatActivity {
             }
         });
 
+        ImageView chart = (ImageView) findViewById(R.id.chart);
+        chart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SearchPost.this , PostActivity.class);
+                startActivity(intent);
+            }
+        });
+
         // set List ---->
         // <test Data>
         ArrayList<ListGeneral> dataList = new ArrayList<ListGeneral>();

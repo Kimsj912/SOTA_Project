@@ -32,20 +32,11 @@ public class FindPW extends AppCompatActivity {
         setContentView(R.layout.activity_findpw);
 
         firebaseAuth =  FirebaseAuth.getInstance();
+
         // attribute
         backToLoginBtn = findViewById(R.id.backToLogin);
-
-        findID_btn = findViewById(R.id.findID);
-        findPW_btn = findViewById(R.id.findPW);
-
         editTextUserEmail = findViewById(R.id.findPW_email);
-//        phone_num = findViewById(R.id.phone_num);
-//        confirm_btn = findViewById(R.id.confirm_btn);
-//        confirm_num = findViewById(R.id.certi_num);
-//        ok_btn = findViewById(R.id.ok);
-
         find_btn = findViewById(R.id.change_btn);
-
 
         // common
         backToLoginBtn.setOnClickListener(new View.OnClickListener() {
@@ -57,13 +48,6 @@ public class FindPW extends AppCompatActivity {
         });
 
         // special
-        findID_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent it = new Intent(FindPW.this, FindID.class);
-                startActivity(it);
-            }
-        });
         find_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
