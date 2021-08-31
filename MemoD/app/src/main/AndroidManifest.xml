@@ -61,6 +61,22 @@
         android:exported="true">
         </activity>
         <activity
+            android:name=".Notification"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".MypageMap"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".MypageTimeline"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".EditProfileActivity"
+            android:exported="true">
+        </activity>
+        <activity
         android:name=".GroupCreate"
         android:exported="true">
         </activity>

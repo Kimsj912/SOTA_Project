@@ -53,10 +53,10 @@
             android:layout_height="20dp"
             android:layout_gravity="center"
             android:layout_marginBottom="15dp"
+            android:background="@drawable/btn_white"
             android:text="내 정보 수정"
             android:textColor="#68Cb8F"
-            android:textSize="12sp"
-            android:background="@drawable/btn_white"/>
+            android:textSize="12sp" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -65,6 +65,7 @@
             android:layout_marginRight="30dp">
 
             <Button
+                android:id="@+id/my_map"
                 android:layout_width="130dp"
                 android:layout_height="40dp"
                 android:layout_alignParentStart="true"
@@ -75,6 +76,7 @@
                 android:textStyle="bold" />
 
             <Button
+                android:id="@+id/my_timeline"
                 android:layout_width="130dp"
                 android:layout_height="40dp"
                 android:layout_alignParentEnd="true"
@@ -82,11 +84,12 @@
                 android:text="내 타임라인"
                 android:textColor="#68CB9F"
                 android:textSize="16dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
         </RelativeLayout>
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="212dp"

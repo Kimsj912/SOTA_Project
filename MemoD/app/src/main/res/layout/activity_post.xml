@@ -98,10 +98,10 @@
             <ImageView
                 android:id="@+id/imageView5"
                 android:layout_width="match_parent"
-                android:layout_height="367dp"
+                android:layout_height="360dp"
                 android:layout_weight="1"
-                android:contentDescription="map"
-                android:src="@drawable/googlemap" />
+                android:contentDescription="map" />
+<!--                android:src="@drawable/googlemap" />-->
 
             <LinearLayout
                 android:layout_width="match_parent"

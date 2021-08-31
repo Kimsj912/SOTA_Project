@@ -61,6 +61,14 @@ public class SearchUser extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        ImageView alert = (ImageView) findViewById(R.id.alert);
+        alert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SearchUser.this , Notification.class);
+                startActivity(intent);
+            }
+        });
 
 
         // set List ---->

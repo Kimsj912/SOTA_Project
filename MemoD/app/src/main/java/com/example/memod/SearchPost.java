@@ -63,6 +63,15 @@ public class SearchPost extends AppCompatActivity {
             }
         });
 
+        ImageView alert = (ImageView) findViewById(R.id.alert);
+        alert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SearchPost.this , Notification.class);
+                startActivity(intent);
+            }
+        });
+
         // set List ---->
         // <test Data>
         ArrayList<ListGeneral> dataList = new ArrayList<ListGeneral>();
