@@ -12,7 +12,9 @@ public class ListHomeGroup extends  ListGeneral{
 
     // Constructor
     public ListHomeGroup(String name, String info, String url){
-        super(name,info,url);
+        super(name,
+                info,
+                url);
         this.postTitle = name;
         this.postImgUrl = url;
     }

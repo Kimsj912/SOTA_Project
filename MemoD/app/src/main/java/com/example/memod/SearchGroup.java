@@ -77,7 +77,6 @@ public class SearchGroup extends AppCompatActivity {
         ArrayList<ListGeneral> dataList = new ArrayList<ListGeneral>();
         dataList.add(new ListGroup("서대문 모여라~","서대문구 주민분들을 환영합니다.","url1"));
         dataList.add(new ListGroup("종로 맛집 탐방단","종로 근처 맛집을 함께 공유하는 곳!","url2"));
-
         // insert data into listview
         ListView listView = (ListView) findViewById(R.id.total_userlistview);
         final MyListAdapter myListAdapter = new MyListAdapter(this,dataList){
