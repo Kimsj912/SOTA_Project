@@ -13,7 +13,7 @@ public class UserModel {
     public String phone;
 
     // additional Attribute
-    public Task<Uri> profilePhotoUrl ;
+    public String profilePhotoUrl ;
     public String infomation ;
     public String year ;
     public String month ;
@@ -31,7 +31,7 @@ public class UserModel {
         this.phone = phone;
     }
 
-    public void setAddition(Task<Uri> profilePhotoUrl, String infomation, String year, String month, String day, String sex, String location1, String location2){
+    public void setAddition(String profilePhotoUrl, String infomation, String year, String month, String day, String sex, String location1, String location2){
         this.profilePhotoUrl = profilePhotoUrl;
         this.infomation = infomation;
         this.year = year;
@@ -68,7 +68,7 @@ public class UserModel {
     public String getPhone() {
         return phone;
     }
-    public Task<Uri> getProfilePhotoUrl() {
+    public String getProfilePhotoUrl() {
         return profilePhotoUrl;
     }
     public String getInfomation() {
@@ -108,7 +108,7 @@ public class UserModel {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-    public void setProfilePhotoUrl(Task<Uri> profilePhotoUrl) {
+    public void setProfilePhotoUrl(String profilePhotoUrl) {
         this.profilePhotoUrl = profilePhotoUrl;
     }
     public void setInfomation(String infomation) {
