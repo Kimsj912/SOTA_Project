@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,6 +45,23 @@ public class HomeNew extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomeNew.this , SearchTotal.class);
+                startActivity(intent);
+            }
+        });
+
+        ImageView alert = (ImageView) findViewById(R.id.alert);
+        alert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeNew.this , Notification.class);
+                startActivity(intent);
+            }
+        });
+        LinearLayout mypage_map = (LinearLayout) findViewById(R.id.mypage_map);
+        mypage_map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeNew.this , MypageMap.class);
                 startActivity(intent);
             }
         });

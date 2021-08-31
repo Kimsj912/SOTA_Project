@@ -65,6 +65,7 @@
             android:layout_marginRight="30dp">
 
             <Button
+                android:id="@+id/my_map"
                 android:layout_width="130dp"
                 android:layout_height="40dp"
                 android:layout_alignParentStart="true"
@@ -72,7 +73,7 @@
                 android:text="내 지도"
                 android:textColor="#68CB9F"
                 android:textSize="15dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <Button
                 android:layout_width="130dp"
