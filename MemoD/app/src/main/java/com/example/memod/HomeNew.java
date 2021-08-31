@@ -86,11 +86,11 @@ public class HomeNew extends AppCompatActivity {
             public void onItemClick(AdapterView parent, View v, int position, long id) {
                 Intent intent=null;
                 if(myListAdapter.getItem(position).getName()==null)
-                    //TODO:SearchTotal -> CreaeGroup (for test로 지금은 설정해둔것)
-                    intent = new Intent(HomeNew.this, SearchTotal.class);
+                    //TODO:SearchTotal -> GroupCreate (for test로 지금은 설정해둔것)
+                    intent = new Intent(HomeNew.this, GroupCreate.class);
                 else
-                    //TODO:SearchUser -> GroupPage (for test로 지금은 설정해둔것)
-                    intent = new Intent(HomeNew.this, SearchUser.class);
+                    //TODO:SearchUser -> GroupScreen (for test로 지금은 설정해둔것)
+                    intent = new Intent(HomeNew.this, GroupScreen.class);
                 startActivity(intent);
             }
         });
