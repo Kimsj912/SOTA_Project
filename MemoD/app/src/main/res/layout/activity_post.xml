@@ -100,8 +100,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="360dp"
                 android:layout_weight="1"
-                android:contentDescription="map" />
-<!--                android:src="@drawable/googlemap" />-->
+                android:contentDescription="map"
+                />
+<!--                android:src="@drawable/image_map" />-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -269,7 +270,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="212dp"
+        android:layout_height="10dp"
         android:layout_weight="1"
         android:gravity="bottom">
 
@@ -284,7 +285,7 @@
         <ImageView
             android:id="@+id/chart"
             android:layout_width="match_parent"
-            android:layout_height="78dp"
+            android:layout_height="75dp"
             android:layout_weight="1"
             android:padding="25dp"
             android:src="@drawable/chart_clicked" />
