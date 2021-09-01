@@ -26,7 +26,7 @@
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:layout_marginLeft="220dp"
-            android:src="@drawable/photo"/>
+            android:src="@drawable/cat"/>
 
     </LinearLayout>
 
@@ -39,6 +39,7 @@
         android:background="@drawable/searchborderline">
 
         <ImageView
+            android:id="@+id/search_btn"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_gravity="center"

@@ -27,6 +27,8 @@ public class MakePost extends AppCompatActivity {
         });
 
 
+
+        // common bar
         ImageView home = (ImageView) findViewById(R.id.home);
         home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,7 +37,8 @@ public class MakePost extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        ImageView chart = (ImageView) findViewById(R.id.chart);
+
+        ImageView chart = findViewById(R.id.chart);
         chart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -44,7 +47,16 @@ public class MakePost extends AppCompatActivity {
             }
         });
 
-        ImageView alert = (ImageView) findViewById(R.id.alert);
+        ImageView plus = findViewById(R.id.plus);
+        plus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MakePost.this , MakePost.class);
+                startActivity(intent);
+            }
+        });
+
+        ImageView alert = findViewById(R.id.alert);
         alert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,5 +64,15 @@ public class MakePost extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        ImageView my_page = findViewById(R.id.my_page);
+        my_page.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MakePost.this , MypageMap.class);
+                startActivity(intent);
+            }
+        });
+
 
     }}

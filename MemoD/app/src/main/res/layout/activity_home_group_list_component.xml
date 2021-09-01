@@ -6,6 +6,7 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/background"
         android:layout_width="150dp"
         android:layout_height="160dp"
         android:background="@drawable/group_creat_border"
@@ -22,6 +23,7 @@
             android:layout_width="142dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
+            android:scaleType="centerCrop"
             android:src="@drawable/image"></ImageView>
 
         <TextView

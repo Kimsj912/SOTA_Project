@@ -30,6 +30,10 @@ public class SearchTotal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_total);
 
+        String beforeInfo = getIntent().getStringExtra("info");
+        EditText text = findViewById(R.id.information);
+        if(beforeInfo!=null) text.setText(beforeInfo);
+
         TextView information = (TextView) findViewById(R.id.group);
         information.setOnClickListener(new View.OnClickListener() {
             @Override

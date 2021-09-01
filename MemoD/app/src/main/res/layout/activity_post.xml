@@ -81,10 +81,6 @@
 
             </LinearLayout>
 
-            <!--                android:src="@drawable/googlemap" />-->
-
-            L
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -101,7 +97,8 @@
                     app:layout_constraintHorizontal_bias="0.49"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/image_map" />
+                    app:srcCompat="@drawable/hongjecheon"
+                    android:scaleType="centerCrop"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -204,7 +201,7 @@
                     android:layout_marginStart="6dp"
                     android:layout_weight="1"
                     android:gravity="center|start"
-                    android:text="음악"
+                    android:text="joy - 안녕"
                     android:textStyle="bold" />
 
                 <TextView
@@ -225,7 +222,7 @@
                 android:layout_marginTop="8dp"
                 android:contentDescription="memo"
                 android:gravity="center|start"
-                android:text="오늘의 음식 투어는 명지대학교였습니다!"
+                android:text="오늘의 투어는 명지대학교였습니다!"
                 android:textStyle="bold" />
 
             <TextView

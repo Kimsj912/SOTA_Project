@@ -1,6 +1,7 @@
 package com.example.memod;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -39,9 +40,10 @@ public class HomeNew extends AppCompatActivity {
             }
         });
 
-
-        EditText information = (EditText) findViewById(R.id.information);
-        information.setOnClickListener(new View.OnClickListener() {
+//        EditText info = findViewById(R.id.information);
+//        String infotext = info.getText().toString();
+        ImageView search_btn =  findViewById(R.id.search_btn);
+        search_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomeNew.this , SearchTotal.class);
@@ -87,10 +89,10 @@ public class HomeNew extends AppCompatActivity {
         // set List ---->
         // <test Data>
         ArrayList<ListGeneral> dataList = new ArrayList<ListGeneral>();
+        dataList.add(new ListHomeGroup(null , null,null));
         dataList.add(new ListHomeGroup("서대문 모여라~",null,"url1"));
         dataList.add(new ListHomeGroup("종로 맛집 탐방단",null,"url2"));
         dataList.add(new ListHomeGroup("라멘 맛있당" , null,"url3"));
-        dataList.add(new ListHomeGroup(null , null,null));
 
         // insert data into listview
         GridView listView = (GridView) findViewById(R.id.total_userlistview);
@@ -104,11 +106,22 @@ public class HomeNew extends AppCompatActivity {
                     view = mLayoutInflater.inflate(R.layout.activity_home_group_list_component, null, false);
 
                     // view Attribute setting
+                    LinearLayout layout = view.findViewById(R.id.background);
                     ImageView photo = (ImageView) view.findViewById(R.id.photo);
                     TextView group_name_in = (TextView) view.findViewById(R.id.group_name_in);
 
                     // view Value
-                    photo.setImageResource(R.drawable.back);
+
+                    if(((ListHomeGroup) sample.get(position)).getPostImgUrl()=="url1") {
+                        photo.setImageResource(R.drawable.seodaemungu);
+                        layout.setBackgroundResource(R.drawable.group_creat_border2);
+                    } else  if(((ListHomeGroup) sample.get(position)).getPostImgUrl()=="url2") {
+                        photo.setImageResource(R.drawable.jongro);
+                        layout.setBackgroundResource(R.drawable.group_creat_border3);
+                    } else  if(((ListHomeGroup) sample.get(position)).getPostImgUrl()=="url3") {
+                        photo.setImageResource(R.drawable.ramen);
+                        layout.setBackgroundResource(R.drawable.group_creat_border);
+                    }
                     group_name_in.setText(((ListHomeGroup) sample.get(position)).getPostTitle());
                 }
                 return view;

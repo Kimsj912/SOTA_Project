@@ -68,4 +68,15 @@ public class MypageMap extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        ImageView alert = findViewById(R.id.alert);
+        alert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MypageMap.this , Notification.class);
+                startActivity(intent);
+            }
+        });
+
+
+
     }}
