@@ -78,6 +78,16 @@ public class SearchUser extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        ImageView plus = (ImageView) findViewById(R.id.plus);
+        plus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SearchUser.this , MakePost.class);
+                startActivity(intent);
+            }
+        });
+
         // set List ---->
         // <test Data>
         ArrayList<ListGeneral> dataList = new ArrayList<ListGeneral>();

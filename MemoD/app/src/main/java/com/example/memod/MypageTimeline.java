@@ -39,6 +39,16 @@ public class MypageTimeline extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        ImageView home = (ImageView) findViewById(R.id.home);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MypageTimeline.this , HomeNew.class);
+                startActivity(intent);
+            }
+        });
+
         ImageView alert = (ImageView) findViewById(R.id.alert);
         alert.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +66,16 @@ public class MypageTimeline extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        ImageView plus = (ImageView) findViewById(R.id.plus);
+        plus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MypageTimeline.this , MakePost.class);
+                startActivity(intent);
+            }
+        });
+
 
         // set List ---->
         // <test Data>
