@@ -98,12 +98,12 @@
         android:layout_marginStart="25dp"
         android:layout_marginTop="20dp" />
 
+
     <ListView
+        android:id="@+id/comment_list"
         android:layout_width="match_parent"
         android:layout_height="375dp">
-
     </ListView>
-
 
     <EditText
         android:id="@+id/editTextTextPersonName"
