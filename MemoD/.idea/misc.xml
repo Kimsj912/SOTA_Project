@@ -44,7 +44,23 @@
         <entry key="..\:/Users/oodms/AndroidStudioProjects/MemoD/MemoD/app/src/main/res/layout/activity_findid.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/oodms/AndroidStudioProjects/MemoD/MemoD/app/src/main/res/layout/activity_findpw.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/oodms/AndroidStudioProjects/MemoD/MemoD/app/src/main/res/layout/activity_login.xml" value="0.264" />
+<<<<<<< HEAD
+        <entry key="..\:/Users/oodms/AndroidStudioProjects/MemoD/MemoD/app/src/main/res/layout/activity_make_pin.xml" value="0.24728260869565216" />
+        <entry key="..\:/Users/oodms/AndroidStudioProjects/MemoD/MemoD/app/src/main/res/layout/activity_make_post.xml" value="0.24728260869565216" />
+        <entry key="..\:/Users/oodms/AndroidStudioProjects/MemoD/MemoD/app/src/main/res/layout/activity_post.xml" value="0.21014492753623187" />
+        <entry key="..\:/Users/oodms/AndroidStudioProjects/MemoD/MemoD/app/src/main/res/layout/activity_post_list_component.xml" value="0.21014492753623187" />
+        <entry key="..\:/Users/oodms/AndroidStudioProjects/MemoD/MemoD/app/src/main/res/layout/activity_profile.xml" value="0.24728260869565216" />
+        <entry key="..\:/Users/oodms/AndroidStudioProjects/MemoD/MemoD/app/src/main/res/layout/activity_search_group.xml" value="0.24728260869565216" />
+        <entry key="..\:/Users/oodms/AndroidStudioProjects/MemoD/MemoD/app/src/main/res/layout/activity_search_post.xml" value="0.24728260869565216" />
+        <entry key="..\:/Users/oodms/AndroidStudioProjects/MemoD/MemoD/app/src/main/res/layout/activity_search_total.xml" value="0.24728260869565216" />
+        <entry key="..\:/Users/oodms/AndroidStudioProjects/MemoD/MemoD/app/src/main/res/layout/activity_search_user.xml" value="0.24728260869565216" />
+        <entry key="..\:/Users/oodms/AndroidStudioProjects/MemoD/MemoD/app/src/main/res/layout/activity_signup.xml" value="0.24728260869565216" />
+        <entry key="..\:/Users/oodms/AndroidStudioProjects/MemoD/MemoD/app/src/main/res/layout/activity_signup_success.xml" value="0.24728260869565216" />
+        <entry key="..\:/Users/oodms/AndroidStudioProjects/MemoD/MemoD/app/src/main/res/layout/activity_user_list_component.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/oodms/AndroidStudioProjects/MemoD/MemoD/app/src/main/res/layout/list_row.xml" value="0.4" />
+=======
         <entry key="..\:/Users/oodms/AndroidStudioProjects/MemoD/MemoD/app/src/main/res/layout/list_row.xml" value="0.1793478260869565" />
+>>>>>>> cef8c117d98df687a1e213c654ae3ee413259c44
         <entry key="..\:/Users/oodms/AndroidStudioProjects/MemoD/MemoD/app/src/main/res/layout/mypage_map.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/oodms/AndroidStudioProjects/MemoD/MemoD/app/src/main/res/layout/mypage_timeline.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/oodms/AndroidStudioProjects/MemoD/app/src/main/res/layout/activity_changepw.xml" value="0.16458333333333333" />

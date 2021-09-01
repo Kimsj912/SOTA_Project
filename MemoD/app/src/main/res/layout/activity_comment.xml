@@ -97,9 +97,14 @@
 
 
     <ListView
+        android:id="@+id/comment_list"
         android:layout_width="match_parent"
+<<<<<<< HEAD
+        android:layout_height="375dp">
+=======
         android:layout_height="420dp">
 
+>>>>>>> cef8c117d98df687a1e213c654ae3ee413259c44
     </ListView>
 
     <EditText
