@@ -153,11 +153,6 @@ public class Profile extends AppCompatActivity {
             userModel.setLocation1("");
             userModel.setLocation2("");
         }
-        if(sex.isSelected()) {
-            userModel.setSex(selectedSex.getText().toString());
-        }else{
-            userModel.setSex("");
-        }
     }
 
     // Method - Album
@@ -228,8 +223,10 @@ public class Profile extends AppCompatActivity {
                                         // 스토리지에 방생성 후 선택한 이미지 넣음
                                         uploadProfileToStorage(file);
 
-                                        // database에 저장
+                                        // database에 저장 (사진 url저장)
+                                        userModel.setProfilePhotoUrl("user/photo/uid/"+uid+"/"+file.getLastPathSegment());
                                         databaseRef.child(uid).setValue(userModel);
+
                                         Intent intent = new Intent(Profile.this, MainActivity.class);
                                         startActivity(intent);
 

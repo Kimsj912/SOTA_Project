@@ -25,7 +25,7 @@
             android:layout_width="48.24dp"
             android:layout_height="71.76dp"
             android:layout_marginStart="16dp"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:src="@drawable/random_image" />
 
         <LinearLayout
             android:layout_width="240dp"
@@ -56,7 +56,7 @@
             android:id="@+id/pheed"
             android:layout_width="69dp"
             android:layout_height="match_parent"
-            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+            android:src="@drawable/ic_launcher_background" />
 
     </LinearLayout>
 
@@ -67,15 +67,12 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="40dp"
+            android:layout_width="24dp"
             android:id="@+id/music"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
             android:layout_marginStart="15dp"
-            android:background="@drawable/play_background"
-            android:paddingStart="5dp"
-            android:paddingEnd="1dp"
-            android:src ="@android:drawable/ic_media_play" />
+            android:src ="@drawable/music_play" />
 
         <TextView
             android:id="@+id/music_text"
@@ -102,7 +99,12 @@
     <ListView
         android:id="@+id/comment_list"
         android:layout_width="match_parent"
+<<<<<<< HEAD
         android:layout_height="375dp">
+=======
+        android:layout_height="420dp">
+
+>>>>>>> cef8c117d98df687a1e213c654ae3ee413259c44
     </ListView>
 
     <EditText
@@ -118,8 +120,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="212dp"
-        android:layout_weight="1"
+        android:layout_height="75dp"
         android:gravity="bottom">
 
         <ImageView
