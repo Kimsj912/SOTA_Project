@@ -88,11 +88,34 @@
 
         </RelativeLayout>
 
-        <ImageView
-            android:id="@+id/imageView11"
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/image_map" />
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:translationZ="0dp"
+                app:srcCompat="@drawable/image_map"
+                tools:layout_editor_absoluteX="29dp"
+                tools:layout_editor_absoluteY="-30dp" />
+
+            <ImageView
+                android:id="@+id/pin"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="-50dp"
+                android:translationZ="1dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.603"
+                app:layout_constraintStart_toStartOf="@+id/imageView11"
+                app:layout_constraintTop_toTopOf="@+id/imageView11"
+                app:layout_constraintVertical_bias="0.374"
+                app:srcCompat="@drawable/pin" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 
