@@ -183,8 +183,8 @@ public class SearchTotal extends AppCompatActivity {
                 return view;
             }
         };
-
         userListView.setAdapter(myUserListAdapter) ;
+
         userListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id){

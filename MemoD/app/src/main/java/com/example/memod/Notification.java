@@ -33,27 +33,28 @@ public class Notification extends AppCompatActivity {
         });
 
         ArrayList<ListGeneral> dataList = new ArrayList<ListGeneral>();
-        dataList.add(new ListGroup("서대문 모여라~","서대문구 주민분들을 환영합니다.","url1"));
-        dataList.add(new ListGroup("종로 맛집 탐방단","종로 근처 맛집을 함께 공유하는 곳!","url2"));
+        dataList.add(new ListNorification(null ,"서대문구 주민분들을 환영합니다.",null));
+        dataList.add(new ListNorification(null,"종로 근처 맛집을 함께 공유하는 곳!",null));
         // insert data into listview
-        ListView listView = (ListView) findViewById(R.id.total_userlistview);
+        ListView listView = (ListView) findViewById(R.id.ListView);
         final MyListAdapter myListAdapter = new MyListAdapter(this,dataList){
             @Override
             public View getView(int position, View converView, ViewGroup parent) {
-                View view = mLayoutInflater.inflate(R.layout.activity_group_list_component, null,false);
+                View view = mLayoutInflater.inflate(R.layout.list_row, null,false);
 
-                ImageView group_image = (ImageView)view.findViewById(R.id.group_image);
-                TextView group_name = (TextView)view.findViewById(R.id.group_name);
-                TextView group_intro = (TextView)view.findViewById(R.id.group_intro);
+                ImageView image = (ImageView)view.findViewById(R.id.image);
+                TextView txtName = (TextView)view.findViewById(R.id.txtName);
+                ImageView image2 = (ImageView)view.findViewById(R.id.image2);
 
 //            user_image.setImageResource(sample.get(position).getUserProfileUrl());
-                group_image.setImageResource(R.drawable.back);
-                group_name.setText(((ListGroup)sample.get(position)).getGroupname());
-                group_intro.setText(((ListGroup)sample.get(position)).getGroupIntro());
+                image.setImageResource(R.drawable.rabbit);
+                txtName.setText(((ListNorification)sample.get(position)).getTxtName());
+                image2.setImageResource(R.drawable.bear);
 
                 return view;
             }
         };
+        listView.setAdapter(myListAdapter) ;
 
     }
 }
