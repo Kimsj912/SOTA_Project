@@ -118,7 +118,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="530dp"
+        android:layout_height="630dp"
         android:fillViewport="true">
 
         <LinearLayout
@@ -204,7 +204,7 @@
                     android:layout_marginTop="20dp"
                     android:textSize="15dp"
                     android:textColor="#000"
-                    android:text="아이디"/>
+                    android:text="이메일"/>
 
                 <com.rengwuxian.materialedittext.MaterialEditText
                     android:id="@+id/user_id"
@@ -245,11 +245,12 @@
 
                     <com.rengwuxian.materialedittext.MaterialEditText
                         android:id="@+id/pw"
-                        android:layout_weight="8"
+                        android:layout_width="10dp"
                         android:layout_height="55dp"
+                        android:layout_weight="8"
                         android:hint="********"
-                        app:met_floatingLabel="normal"
-                        android:layout_width="10dp"/>
+                        android:inputType="textPassword"
+                        app:met_floatingLabel="normal" />
 
                     <Button
                         android:layout_height="35dp"
@@ -349,36 +350,18 @@
                     android:textColor="#000"
                     android:text="거주지역"/>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:weightSum="10"
-                    android:layout_marginTop="5dp">
-
-                    <com.rengwuxian.materialedittext.MaterialEditText
-                        android:id="@+id/residence"
-                        android:layout_weight="8"
-                        android:layout_height="55dp"
-                        android:hint="000"
-                        app:met_floatingLabel="normal"
-                        android:layout_width="10dp"/>
-
-                    <Button
-                        android:layout_height="35dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_weight="2"
-                        android:text="변경"
-                        android:textSize="13dp"
-                        android:textColor="#68CB9F"
-                        android:textStyle="bold"
-                        app:met_floatingLabel="normal"
-                        android:background="@drawable/borderline"
-                        android:layout_width="10dp"/>
-
-                </LinearLayout>
 
                 <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/location1"
+                    android:layout_marginTop="5dp"
+                    android:layout_height="55dp"
+                    android:text="000"
+                    app:met_floatingLabel="normal"
+                    android:layout_width="match_parent"/>
+
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/location2"
                     android:layout_marginTop="5dp"
                     android:layout_height="55dp"
                     android:text="000"
