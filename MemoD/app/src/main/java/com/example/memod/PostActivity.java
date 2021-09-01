@@ -22,5 +22,16 @@ public class PostActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+
+        ImageView home = (ImageView) findViewById(R.id.home);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PostActivity.this , GroupScreen.class);
+                startActivity(intent);
+            }
+        });
     }
 }
