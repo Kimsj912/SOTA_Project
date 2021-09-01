@@ -85,14 +85,7 @@
                 android:id="@+id/imageView5"
                 android:layout_width="match_parent"
                 android:layout_height="360dp"
-<<<<<<< HEAD
-                android:layout_weight="1"
-                android:contentDescription="map"
-                />
-<!--                android:src="@drawable/image_map" />-->
-=======
                 android:contentDescription="map" />
->>>>>>> cef8c117d98df687a1e213c654ae3ee413259c44
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -258,13 +251,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-<<<<<<< HEAD
-        android:layout_height="10dp"
-        android:layout_weight="1"
-=======
         android:layout_height="75dp"
 
->>>>>>> cef8c117d98df687a1e213c654ae3ee413259c44
         android:gravity="bottom">
 
         <ImageView
@@ -278,7 +266,7 @@
         <ImageView
             android:id="@+id/chart"
             android:layout_width="match_parent"
-            android:layout_height="75dp"
+            android:layout_height="78dp"
             android:layout_weight="1"
             android:padding="25dp"
             android:src="@drawable/chart_clicked" />
