@@ -48,11 +48,12 @@
 
                 <ImageView
                     android:id="@+id/imageView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:layout_marginStart="20dp"
                     android:contentDescription="profile"
-                    android:src="@drawable/random_image" />
+                    android:src="@drawable/random_image"
+                    app:srcCompat="@drawable/personuser1" />
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -62,7 +63,7 @@
 
                     <TextView
                         android:id="@+id/textView4"
-                        android:layout_width="wrap_content"
+                        android:layout_width="149dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_weight="1"
@@ -70,22 +71,36 @@
 
                     <TextView
                         android:id="@+id/textView"
-                        android:layout_width="wrap_content"
+                        android:layout_width="127dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_weight="1"
-                        android:text="adress" />
+                        android:text="서울특별시 서대문구" />
                 </LinearLayout>
 
             </LinearLayout>
 
             <!--                android:src="@drawable/googlemap" />-->
 
-            <ImageView
-                android:id="@+id/imageView5"
+            L
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="360dp"
-                android:contentDescription="map" />
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="360dp"
+                    android:layout_height="360dp"
+                    android:layout_marginTop="16dp"
+                    android:contentDescription="@drawable/image_map"
+                    android:textAlignment="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.49"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/image_map" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -167,16 +182,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:orientation="horizontal"
-                android:layout_marginBottom="10dp">
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="24dp"
                     android:id="@+id/music"
+                    android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_gravity="center"
                     android:layout_marginStart="15dp"
-                    android:src ="@drawable/music_play" />
+                    android:src="@drawable/music_play" />
 
                 <TextView
                     android:id="@+id/textView5"
@@ -185,8 +200,8 @@
                     android:layout_marginStart="6dp"
                     android:layout_weight="1"
                     android:gravity="center|start"
-                    android:textStyle="bold"
-                    android:text="음악" />
+                    android:text="음악"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/textView6"
@@ -206,8 +221,8 @@
                 android:layout_marginTop="8dp"
                 android:contentDescription="memo"
                 android:gravity="center|start"
-                android:textStyle="bold"
-                android:text="메모" />
+                android:text="오늘의 음식 투어는 명지대학교였습니다!"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView8"
@@ -222,10 +237,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginTop="15dp"
-                android:orientation="horizontal"
-                android:layout_marginBottom="40dp">
+                android:layout_marginBottom="40dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/textView9"
@@ -234,8 +249,8 @@
                     android:layout_marginStart="20dp"
                     android:layout_weight="1"
                     android:contentDescription="name"
-                    android:text="이름"
-                    android:textStyle="bold"/>
+                    android:text="고승환"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/textView10"
@@ -243,8 +258,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="8"
                     android:contentDescription="comment"
-                    android:text="comment"
-                    android:textStyle="bold"/>
+                    android:text="헉 여기 어디예요?"
+                    android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
