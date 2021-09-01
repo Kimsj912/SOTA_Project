@@ -77,7 +77,7 @@
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="40dp"
                 android:contentDescription="@string/app_name"
-                android:text="group_map"
+                android:text="그룹 지도"
                 android:textSize="25sp" />
 
             <ImageView
@@ -87,6 +87,7 @@
                 android:paddingStart="40dp"
                 android:paddingEnd="40dp"
                 app:srcCompat="@drawable/image_map" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="70dp"

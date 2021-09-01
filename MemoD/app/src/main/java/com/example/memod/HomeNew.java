@@ -112,10 +112,12 @@ public class HomeNew extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView parent, View v, int position, long id) {
                 Intent intent=null;
-                if(myListAdapter.getItem(position).getName()==null)
+                if(myListAdapter.getItem(position).getName()==null) {
                     intent = new Intent(HomeNew.this, GroupCreate.class);
-                else
+                }else {
                     intent = new Intent(HomeNew.this, GroupScreen.class);
+                    intent.putExtra("id",id);
+                }
                 startActivity(intent);
             }
         });
