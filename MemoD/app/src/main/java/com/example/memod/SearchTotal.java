@@ -83,6 +83,16 @@ public class SearchTotal extends AppCompatActivity {
             }
         });
 
+        ImageView plus = (ImageView) findViewById(R.id.plus);
+        plus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SearchTotal.this , MakePost.class);
+                startActivity(intent);
+            }
+        });
+
+
         // Group - set List ---->
         // <test Data>
         ArrayList<ListGeneral> dataList = new ArrayList<ListGeneral>();

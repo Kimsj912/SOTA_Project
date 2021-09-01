@@ -74,6 +74,14 @@ public class HomeNew extends AppCompatActivity {
             }
         });
 
+        ImageView plus = (ImageView) findViewById(R.id.plus);
+        plus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeNew.this , MakePost.class);
+                startActivity(intent);
+            }
+        });
 
 
         // set List ---->
