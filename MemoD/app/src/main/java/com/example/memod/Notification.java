@@ -33,8 +33,8 @@ public class Notification extends AppCompatActivity {
         });
 
         ArrayList<ListGeneral> dataList = new ArrayList<ListGeneral>();
-        dataList.add(new ListNorification(null ,"서대문구 주민분들을 환영합니다.",null));
-        dataList.add(new ListNorification(null,"종로 근처 맛집을 함께 공유하는 곳!",null));
+        dataList.add(new ListNorification(null ,"최고운님이 유은서님의 2021년 8월 31일의 게시물에 댓글을 달았습니다 \"노래랑 완전 어울리는 장소다 ㅜㅜ\"",null));
+        dataList.add(new ListNorification(null,"최고운님이 유은서님의 2021년 5월 15일의 게시물에 댓글을 달았습니다 \"여긴 어디야?? 나도 데려가\"",null));
         // insert data into listview
         ListView listView = (ListView) findViewById(R.id.ListView);
         final MyListAdapter myListAdapter = new MyListAdapter(this,dataList){
